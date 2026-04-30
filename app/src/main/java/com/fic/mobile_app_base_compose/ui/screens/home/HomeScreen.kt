@@ -1,6 +1,9 @@
 package com.fic.mobile_app_base_compose.ui.screens.home
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,7 +17,7 @@ import androidx.compose.ui.unit.sp
 fun HomeScreen() {
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = Color(0xFFF0F4F8) // Cambio visual 1: Fondo con un tono grisáceo azulado
+        color = Color(0xFFF0F4F8)
     ) {
         Column(
             modifier = Modifier
@@ -24,27 +27,50 @@ fun HomeScreen() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Bienvenido a Mi App",
-                fontSize = 32.sp,
+                text = "CREACION DE CUENTA",
+                fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
-                color = Color(0xFF1A237E) // Cambio visual 2: Color de título personalizado
+                color = Color(0xFF1A237E),
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+            )
+
+            Text(
+                text = "Cargando...",
+                fontSize = 16.sp,
+                color = Color(0xFF1A237E),
+                modifier = Modifier.fillMaxWidth(),
+                textAlign = androidx.compose.ui.text.style.TextAlign.Center
             )
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            Text(
-                text = "Esta es la pantalla principal de entrada.",
-                fontSize = 18.sp,
-                color = Color.Gray
-            )
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(20.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Icon(
+                    imageVector = Icons.Default.AccountCircle,
+                    contentDescription = "Icono",
+                    tint = Color(0xFF1A237E)
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = "Tu cuenta ya esta lista",
+                    fontSize = 16.sp
+                )
+            }
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Button(
-                onClick = { /* Acción futura */ },
+                onClick = { },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A237E))
             ) {
-                Text(text = "Comenzar Exploración", color = Color.White)
+                Text(text = "Siguiente", color = Color.White)
             }
         }
     }
