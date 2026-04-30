@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">mobile-app-base-compose</string>
+    <string name="app_name">Mi App Compose</string>
+    <string name="home_title">CREACION DE CUENTA</string>
+    <string name="home_status_account">Tu cuenta ya esta lista</string>
+    <string name="home_button_next">Siguiente</string>
+    <string name="descrip_icon">Icono de cuenta</string>
 </resources>

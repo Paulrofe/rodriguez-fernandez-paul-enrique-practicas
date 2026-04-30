@@ -9,9 +9,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import com.fic.mobile_app_base_compose.R
 
 @Composable
 fun HomeScreen() {
@@ -22,17 +25,17 @@ fun HomeScreen() {
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(24.dp),
+                .padding(dimensionResource(id = R.dimen.padding_large)),
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "CREACION DE CUENTA",
+                text = stringResource(id =  R.string.home_title),
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFF1A237E),
                 modifier = Modifier.fillMaxWidth(),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                textAlign = TextAlign.Center
             )
 
             Text(
@@ -40,37 +43,40 @@ fun HomeScreen() {
                 fontSize = 16.sp,
                 color = Color(0xFF1A237E),
                 modifier = Modifier.fillMaxWidth(),
-                textAlign = androidx.compose.ui.text.style.TextAlign.Center
+                textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_medium)))
 
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(20.dp),
+                    .padding(dimensionResource(id = R.dimen.padding_main)),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
                 Icon(
                     imageVector = Icons.Default.AccountCircle,
-                    contentDescription = "Icono",
+                    contentDescription = stringResource(id = R.string.descrip_icon),
                     tint = Color(0xFF1A237E)
                 )
-                Spacer(modifier = Modifier.width(8.dp))
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_large)))
                 Text(
-                    text = "Tu cuenta ya esta lista",
+                    text = stringResource(id = R.string.home_status_account),
                     fontSize = 16.sp
                 )
             }
 
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_medium)))
 
             Button(
-                onClick = { },
+                onClick = {  },
                 colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A237E))
             ) {
-                Text(text = "Siguiente", color = Color.White)
+                Text(
+                    text = stringResource(id = R.string.home_button_next),
+                    color = Color.White
+                )
             }
         }
     }
