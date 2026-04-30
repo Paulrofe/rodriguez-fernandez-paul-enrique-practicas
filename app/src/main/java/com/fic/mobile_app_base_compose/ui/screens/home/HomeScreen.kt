@@ -13,6 +13,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.fic.mobile_app_base_compose.R
 
@@ -26,7 +27,7 @@ fun HomeScreen() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(dimensionResource(id = R.dimen.padding_large)),
-            verticalArrangement = Arrangement.Center,
+            verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -34,10 +35,9 @@ fun HomeScreen() {
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color(0xFF1A237E),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth().padding(top = 36.dp),
                 textAlign = TextAlign.Center
             )
-
             Text(
                 text = "Cargando...",
                 fontSize = 16.sp,
@@ -46,28 +46,39 @@ fun HomeScreen() {
                 textAlign = TextAlign.Center
             )
 
-            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_medium)))
-
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(dimensionResource(id = R.dimen.padding_main)),
+                    .padding(vertical = dimensionResource(id = R.dimen.padding_main)),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center
             ) {
                 Icon(
                     imageVector = Icons.Default.AccountCircle,
                     contentDescription = stringResource(id = R.string.descrip_icon),
-                    tint = Color(0xFF1A237E)
+                    tint = Color(0xFF1A237E),
+                    modifier = Modifier.size(dimensionResource(id = R.dimen.icon_size))
                 )
-                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_large)))
+                Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     text = stringResource(id = R.string.home_status_account),
                     fontSize = 16.sp
                 )
             }
 
-            Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.spacer_medium)))
+            HorizontalDivider(modifier = Modifier.padding(vertical = 16.dp))
+
+            Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
+                InfoField(label = "Correo", value = "correodeejemplo@gmail.com")
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_main)))
+
+                InfoField(label = "Telefono", value = "667-123-4567")
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_main)))
+
+                InfoField(label = "Ubicacion", value = "Culiacan, Sin.")
+            }
+
+            Spacer(modifier = Modifier.weight(1f))
 
             Button(
                 onClick = {  },
@@ -79,5 +90,22 @@ fun HomeScreen() {
                 )
             }
         }
+    }
+}
+
+@Composable
+fun InfoField(label: String, value: String) {
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Text(
+            text = label,
+            fontWeight = FontWeight.ExtraBold,
+            fontSize = 14.sp,
+            color = Color.Gray
+        )
+        Text(
+            text = value,
+            fontSize = 18.sp,
+            color = Color.Black
+        )
     }
 }
