@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Mi App Compose</string>
-    <string name="home_title">CREACION DE CUENTA</string>
-    <string name="home_status_account">Tu cuenta ya esta lista</string>
-    <string name="home_button_next">Siguiente</string>
-    <string name="descrip_icon">Icono de cuenta</string>
+    <string name="app_name">App Mobile</string>
+    <string name="event_title">GENERACION DE FUEGO</string>
+    <string name="event_date">jue, 21 may, 5:00</string>
+    <string name="event_location">Nahoas 2751</string>
+    <string name="event_price">A partir de $5.41</string>
 </resources>
